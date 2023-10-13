@@ -1,4 +1,4 @@
-use std::{collections::HashMap, fs, ops::Mul};
+use std::{collections::HashMap, fs};
 
 fn main() {
     println!("Part 1 (test)");
@@ -26,7 +26,7 @@ struct Grid {
     height: usize,
 }
 
-fn lines_to_grid(lines: &Vec<String>) -> Grid {
+fn lines_to_grid(lines: &[String]) -> Grid {
     let mut coords: HashMap<(usize, usize), char> = HashMap::new();
     for (line_idx, line) in lines.iter().enumerate() {
         for (row_idx, c) in line.chars().enumerate() {
@@ -70,7 +70,7 @@ fn part_2(filename: &str) {
     let lines = file_to_lines(filename);
     let grid = lines_to_grid(&lines);
 
-    let vectors = vec![(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)];
+    let vectors = [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)];
     let totals = vectors
         .iter()
         .map(|(dx, dy)| {

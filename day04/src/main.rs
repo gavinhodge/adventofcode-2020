@@ -85,7 +85,7 @@ fn validate_passport_values(passport: &HashMap<String, String>, regexes: &Regexe
         return false;
     }
     let byr_int = byr.parse::<i32>().unwrap();
-    if byr_int < 1920 || byr_int > 2002 {
+    if !(1920..=2002).contains(&byr_int) {
         return false;
     }
 
@@ -94,7 +94,7 @@ fn validate_passport_values(passport: &HashMap<String, String>, regexes: &Regexe
         return false;
     }
     let iyr_int = iyr.parse::<i32>().unwrap();
-    if iyr_int < 2010 || iyr_int > 2020 {
+    if !(2010..=2020).contains(&iyr_int) {
         return false;
     }
 
@@ -103,7 +103,7 @@ fn validate_passport_values(passport: &HashMap<String, String>, regexes: &Regexe
         return false;
     }
     let eyr_int = eyr.parse::<i32>().unwrap();
-    if eyr_int < 2020 || eyr_int > 2030 {
+    if !(2020..=2030).contains(&eyr_int) {
         return false;
     }
 
@@ -113,10 +113,10 @@ fn validate_passport_values(passport: &HashMap<String, String>, regexes: &Regexe
     }
     let hgt_int = hgt[..hgt.len() - 2].parse::<i32>().unwrap();
     let hgt_unit = &hgt[hgt.len() - 2..];
-    if hgt_unit == "cm" && (hgt_int < 150 || hgt_int > 193) {
+    if hgt_unit == "cm" && !(150..=193).contains(&hgt_int) {
         return false;
     }
-    if hgt_unit == "in" && (hgt_int < 59 || hgt_int > 76) {
+    if hgt_unit == "in" && !(59..=76).contains(&hgt_int) {
         return false;
     }
 
