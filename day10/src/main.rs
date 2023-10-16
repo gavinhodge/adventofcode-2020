@@ -1,5 +1,3 @@
-
-
 use common::{file_to_lines, runner};
 
 fn main() {
@@ -14,7 +12,7 @@ fn part_1(filename: &str) {
     let lines = file_to_lines(filename);
     let numbers = lines_to_vec(&lines);
 
-    let window_size = if filename.contains("test") {5} else {25};
+    let window_size = if filename.contains("test") { 5 } else { 25 };
 
     let mut invalid_number = 0;
     let mut current_index = window_size;
@@ -50,8 +48,12 @@ fn part_1(filename: &str) {
 fn part_2(filename: &str) {
     let lines = file_to_lines(filename);
     let numbers = lines_to_vec(&lines);
- 
-    let search_num = if filename.contains("test") {127} else {22477624};
+
+    let search_num = if filename.contains("test") {
+        127
+    } else {
+        22477624
+    };
     let mut start_idx = 0;
     while start_idx < numbers.len() {
         let mut current_sum = 0;

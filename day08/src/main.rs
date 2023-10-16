@@ -1,6 +1,4 @@
-use std::{
-    collections::{HashSet},
-};
+use std::collections::HashSet;
 
 use common::{file_to_lines, runner};
 
