@@ -21,7 +21,7 @@ fn lines_to_rules(lines: &Vec<String>) -> Rules {
         let mut contained: Vec<(usize, String)> = Vec::new();
         if contents != "no other bags." {
             for content in contents.split(", ") {
-                let mut content_parts = content.split(" ");
+                let mut content_parts = content.split(' ');
                 let count = content_parts.next().unwrap().parse::<usize>().unwrap();
                 let color = format!(
                     "{} {}",

@@ -1,6 +1,5 @@
 use std::{
-    collections::{HashMap, HashSet},
-    thread::current,
+    collections::{HashSet},
 };
 
 use common::{file_to_lines, runner};
@@ -18,7 +17,7 @@ struct Instruction {
 fn lines_to_instructions(lines: &Vec<String>) -> Vec<Instruction> {
     let mut instructions: Vec<Instruction> = Vec::new();
     for line in lines {
-        let parts: Vec<&str> = line.split(" ").collect();
+        let parts: Vec<&str> = line.split(' ').collect();
         instructions.push(Instruction {
             operation: parts[0].to_string(),
             argument: parts[1].parse::<i32>().unwrap(),

@@ -1,4 +1,4 @@
-use itertools::{iproduct, Itertools};
+use itertools::iproduct;
 use std::collections::HashSet;
 
 use common::{file_to_lines, runner};
@@ -17,7 +17,7 @@ struct Grid3D {
 }
 
 fn make_grid_from_coords(coords: &HashSet<Coord3D>) -> Grid3D {
-    if coords.len() == 0 {
+    if coords.is_empty() {
         return Grid3D {
             coords: coords.clone(),
             min_coord: (0, 0, 0),
@@ -40,7 +40,7 @@ fn make_grid_from_coords(coords: &HashSet<Coord3D>) -> Grid3D {
     }
 }
 
-fn lines_to_grid(lines: &Vec<String>) -> Grid3D {
+fn lines_to_grid(lines: &[String]) -> Grid3D {
     let mut coords: HashSet<Coord3D> = HashSet::new();
 
     for (y, line) in lines.iter().rev().enumerate() {
@@ -66,10 +66,8 @@ fn next_grid(grid: &Grid3D) -> Grid3D {
                     if count == 2 || count == 3 {
                         new_coords.insert(coord);
                     }
-                } else {
-                    if count == 3 {
-                        new_coords.insert(coord);
-                    }
+                } else if count == 3 {
+                    new_coords.insert(coord);
                 }
             }
         }
@@ -114,7 +112,7 @@ struct Grid4D {
 }
 
 fn make_grid_from_coords_4d(coords: &HashSet<Coord4D>) -> Grid4D {
-    if coords.len() == 0 {
+    if coords.is_empty() {
         return Grid4D {
             coords: coords.clone(),
             min_coord: (0, 0, 0, 0),
@@ -139,7 +137,7 @@ fn make_grid_from_coords_4d(coords: &HashSet<Coord4D>) -> Grid4D {
     }
 }
 
-fn lines_to_grid_4d(lines: &Vec<String>) -> Grid4D {
+fn lines_to_grid_4d(lines: &[String]) -> Grid4D {
     let mut coords: HashSet<Coord4D> = HashSet::new();
 
     for (y, line) in lines.iter().rev().enumerate() {
@@ -166,10 +164,8 @@ fn next_grid_4d(grid: &Grid4D) -> Grid4D {
                         if count == 2 || count == 3 {
                             new_coords.insert(coord);
                         }
-                    } else {
-                        if count == 3 {
-                            new_coords.insert(coord);
-                        }
+                    } else if count == 3 {
+                        new_coords.insert(coord);
                     }
                 }
             }
