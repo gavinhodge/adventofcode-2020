@@ -4,7 +4,7 @@ use std::collections::HashSet;
 use common::{file_to_lines, runner};
 
 fn main() {
-    runner("09", part_1, part_2);
+    runner("17", part_1, part_2);
 }
 
 type Coord3D = (i32, i32, i32);

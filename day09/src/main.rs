@@ -1,7 +1,7 @@
 use common::{file_to_lines, runner};
 
 fn main() {
-    runner("10", part_1, part_2);
+    runner("09", part_1, part_2);
 }
 
 fn lines_to_vec(lines: &[String]) -> Vec<i64> {
