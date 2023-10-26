@@ -9,7 +9,7 @@ fn part_1(filename: &str) {
 
     let start_time = lines[0].parse::<i32>().unwrap();
     let bus_ids = lines[1]
-        .split(",")
+        .split(',')
         .filter(|&id| id != "x")
         .map(|id| id.parse::<i32>().unwrap())
         .collect::<Vec<i32>>();
@@ -47,25 +47,12 @@ fn mod_inv(x: i64, n: i64) -> Option<i64> {
     }
 }
 
-fn chinese_remainder(residues: &[i64], modulii: &[i64]) -> Option<i64> {
-    let prod = modulii.iter().product::<i64>();
-
-    let mut sum = 0;
-
-    for (&residue, &modulus) in residues.iter().zip(modulii) {
-        let p = prod / modulus;
-        sum += residue * mod_inv(p, modulus)? * p
-    }
-
-    Some(sum % prod)
-}
-
 fn part_2(filename: &str) {
     let lines = file_to_lines(filename);
 
     // Parse but include the x as a placeholder
     let bus_ids = lines[1]
-        .split(",")
+        .split(',')
         .map(|id| id.parse::<i64>().unwrap_or(0))
         .collect::<Vec<i64>>();
 
