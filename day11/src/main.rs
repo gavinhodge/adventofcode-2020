@@ -65,15 +65,20 @@ fn part_1(filename: &str) {
 
 fn visible_seat_count(grid: &Grid, coord: Coord2D) -> i32 {
     if grid.get(&coord).unwrap() == &'.' {
-        return 0;  // No point counting if we're on the floor
+        return 0; // No point counting if we're on the floor
     }
 
     let mut count = 0;
-    
+
     let directions = [
-        (-1, -1), (0, -1), (1, -1),
-        (-1,  0),          (1,  0),
-        (-1,  1), (0,  1), (1,  1),
+        (-1, -1),
+        (0, -1),
+        (1, -1),
+        (-1, 0),
+        (1, 0),
+        (-1, 1),
+        (0, 1),
+        (1, 1),
     ];
 
     for dir in directions.iter() {
