@@ -102,7 +102,7 @@ fn visible_seat_count(grid: &Grid, coord: Coord2D) -> i32 {
 fn next_grid_part_2(grid: &Grid) -> Grid {
     let mut next = Grid::new();
     for (coord, c) in grid.iter() {
-        let occupied = visible_seat_count(&grid, *coord);
+        let occupied = visible_seat_count(grid, *coord);
         if *c == 'L' && occupied == 0 {
             next.insert(*coord, '#');
         } else if *c == '#' && occupied >= 5 {
